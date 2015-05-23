@@ -1,0 +1,281 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Python 3: Генерация случайных чисел (модуль random) &mdash; Python Summary 1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Python Summary 1 documentation" href="index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li><a href="index.html">Python Summary 1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="python-3-random">
+<h1>Python 3: Генерация случайных чисел (модуль random)<a class="headerlink" href="#python-3-random" title="Permalink to this headline">¶</a></h1>
+<blockquote class="epigraph">
+<div><p><em>«Генерация случайных чисел слишком важна, чтобы оставлять её на волю случая»</em></p>
+<p class="attribution">&mdash;&nbsp; Роберт Кавью</p>
+</div></blockquote>
+<p>Python порождает случайные числа на основе формулы, так что они не на самом деле случайные, а, как говорят, псевдослучайные <a class="footnote-reference" href="#id3" id="id1">[1]</a>. Этот способ удобен для большинства приложений (кроме онлайновых казино) <a class="footnote-reference" href="#id5" id="id2">[2]</a>.</p>
+<table class="docutils footnote" frame="void" id="id3" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td><a class="reference external" href="https://ru.wikipedia.org/wiki/%D0%93%D0%B5%D0%BD%D0%B5%D1%80%D0%B0%D1%82%D0%BE%D1%80_%D0%BF%D1%81%D0%B5%D0%B2%D0%B4%D0%BE%D1%81%D0%BB%D1%83%D1%87%D0%B0%D0%B9%D0%BD%D1%8B%D1%85_%D1%87%D0%B8%D1%81%D0%B5%D0%BB">Википедия: Генератор псевдослучайных чисел</a></td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id5" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id2">[2]</a></td><td>Доусон М. Программируем на Python. — СПб.: Питер, 2014. — 416 с.: ил. — 3-е изд</td></tr>
+</tbody>
+</table>
+<p>Модуль random позволяет генерировать случайные числа. Прежде чем использовать модуль, необходимо подключить его с помощью инструкции:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">random</span>
+</pre></div>
+</div>
+<div class="section" id="random-random">
+<h2>random.random<a class="headerlink" href="#random-random" title="Permalink to this headline">¶</a></h2>
+<p><tt class="docutils literal"><span class="pre">random.random()</span></tt> — возвращает псевдослучайное число от 0.0 до 1.0</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>
+<span class="mf">0.07500815468466127</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="random-seed">
+<h2>random.seed<a class="headerlink" href="#random-seed" title="Permalink to this headline">¶</a></h2>
+<p><tt class="docutils literal"><span class="pre">random.seed(&lt;Параметр&gt;)</span></tt> — настраивает генератор случайных чисел на новую последовательность. По умолчанию используется системное время. Если значение параметра будет одиноким, то генерируется одинокое число:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>
+<span class="mf">0.9056396761745207</span>
+
+<span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>
+<span class="mf">0.6862541570267026</span>
+
+<span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>
+<span class="mf">0.9056396761745207</span>
+
+<span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>
+<span class="mf">0.7665092563626442</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="random-uniform">
+<h2>random.uniform<a class="headerlink" href="#random-uniform" title="Permalink to this headline">¶</a></h2>
+<p><tt class="docutils literal"><span class="pre">random.uniform(&lt;Начало&gt;,</span> <span class="pre">&lt;Конец&gt;)</span></tt> — возвращает псевдослучайное вещественное число в диапазоне от <tt class="docutils literal"><span class="pre">&lt;Начало&gt;</span></tt> до <tt class="docutils literal"><span class="pre">&lt;Конец&gt;</span></tt>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<span class="mf">15.330185127252884</span>
+
+<span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<span class="mf">18.092324756265473</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="random-randint">
+<h2>random.randint<a class="headerlink" href="#random-randint" title="Permalink to this headline">¶</a></h2>
+<p><tt class="docutils literal"><span class="pre">random.randint(&lt;Начало&gt;,</span> <span class="pre">&lt;Конец&gt;)</span></tt> — возвращает псевдослучайное целое число в диапазоне от <tt class="docutils literal"><span class="pre">&lt;Начало&gt;</span></tt> до <tt class="docutils literal"><span class="pre">&lt;Конец&gt;</span></tt>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">27</span><span class="p">)</span>
+<span class="mi">9</span>
+<span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">27</span><span class="p">)</span>
+<span class="mi">22</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="random-choince">
+<h2>random.choince<a class="headerlink" href="#random-choince" title="Permalink to this headline">¶</a></h2>
+<p><tt class="docutils literal"><span class="pre">random.choince(&lt;Последовательность&gt;)</span></tt> — возвращает случайный элемент из любой последовательности (строки, списка, кортежа):</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="s">&#39;Chewbacca&#39;</span><span class="p">)</span>
+<span class="s">&#39;h&#39;</span>
+<span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="s">&#39;a&#39;</span><span class="p">,</span><span class="s">&#39;b&#39;</span><span class="p">])</span>
+<span class="mi">2</span>
+<span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="s">&#39;a&#39;</span><span class="p">,</span><span class="s">&#39;b&#39;</span><span class="p">])</span>
+<span class="s">&#39;a&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="random-randrange">
+<h2>random.randrange<a class="headerlink" href="#random-randrange" title="Permalink to this headline">¶</a></h2>
+<p><tt class="docutils literal"><span class="pre">random.randrange(&lt;Начало&gt;,</span> <span class="pre">&lt;Конец&gt;,</span> <span class="pre">&lt;Шаг&gt;)</span></tt> — возвращает случайно выбранное число из последовательности.</p>
+</div>
+<div class="section" id="random-shuffle">
+<h2>random.shuffle<a class="headerlink" href="#random-shuffle" title="Permalink to this headline">¶</a></h2>
+<p><tt class="docutils literal"><span class="pre">random.shuffle(&lt;Список&gt;)</span></tt> — перемешивает последовательность (изменяется сама последовательность). Поэтому функция не работает для неизменяемых объектов.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">List</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">]</span>
+<span class="n">List</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
+<span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">List</span><span class="p">)</span>
+<span class="n">List</span>
+<span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id6">
+<h2>Вероятностные распределения<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<p><tt class="docutils literal"><span class="pre">random.triangular(low,</span> <span class="pre">high,</span> <span class="pre">mode)</span></tt> — случайное число с плавающей точкой, <tt class="docutils literal"><span class="pre">low</span> <span class="pre">≤</span> <span class="pre">N</span> <span class="pre">≤</span> <span class="pre">high</span></tt>. <tt class="docutils literal"><span class="pre">Mode</span></tt> - распределение.</p>
+<p><tt class="docutils literal"><span class="pre">random.betavariate(alpha,</span> <span class="pre">beta)</span></tt> — бета-распределение. <tt class="docutils literal"><span class="pre">alpha&gt;0</span></tt>, <tt class="docutils literal"><span class="pre">beta&gt;0</span></tt>. Возвращает от 0 до 1.</p>
+<p><tt class="docutils literal"><span class="pre">random.expovariate(lambd)</span></tt> — экспоненциальное распределение. <tt class="docutils literal"><span class="pre">lambd</span></tt> равен 1/среднее желаемое. <tt class="docutils literal"><span class="pre">Lambd</span></tt> должен быть отличным от нуля. Возвращаемые значения от 0 до плюс бесконечности, если <tt class="docutils literal"><span class="pre">lambd</span></tt> положительно, и от минус бесконечности до 0, если lambd отрицательный.</p>
+<p><tt class="docutils literal"><span class="pre">random.gammavariate(alpha,</span> <span class="pre">beta)</span></tt> — гамма-распределение. Условия на параметры <tt class="docutils literal"><span class="pre">alpha&gt;0</span></tt> и <tt class="docutils literal"><span class="pre">beta&gt;0</span></tt>.</p>
+<p>random.gauss(значение, стандартное отклонение) — распределение Гаусса.</p>
+<p><tt class="docutils literal"><span class="pre">random.lognormvariate(mu,</span> <span class="pre">sigma)</span></tt> — логарифм нормального распределения. Если взять натуральный логарифм этого распределения, то вы получите нормальное распределение со средним <tt class="docutils literal"><span class="pre">mu</span></tt> и стандартным отклонением <tt class="docutils literal"><span class="pre">sigma</span></tt>. <tt class="docutils literal"><span class="pre">mu</span></tt> может иметь любое значение, и <tt class="docutils literal"><span class="pre">sigma</span></tt> должна быть больше нуля.</p>
+<p><tt class="docutils literal"><span class="pre">random.normalvariate(mu,</span> <span class="pre">sigma)</span></tt> — нормальное распределение. <tt class="docutils literal"><span class="pre">mu</span></tt> — среднее значение, <tt class="docutils literal"><span class="pre">sigma</span></tt> — стандартное отклонение.</p>
+<p><tt class="docutils literal"><span class="pre">random.vonmisesvariate(mu,</span> <span class="pre">kappa)</span></tt> — <tt class="docutils literal"><span class="pre">mu</span></tt> — средний угол, выраженный в радианах от 0 до 2π, и <tt class="docutils literal"><span class="pre">kappa</span></tt> — параметр концентрации, который должен быть больше или равен нулю. Если каппа равна нулю, это распределение сводится к случайному углу в диапазоне от 0 до 2π.</p>
+<p><tt class="docutils literal"><span class="pre">random.paretovariate(alpha)</span></tt> — распределение Парето.</p>
+<p><tt class="docutils literal"><span class="pre">random.weibullvariate(alpha,</span> <span class="pre">beta)</span></tt> — распределение Вейбулла.</p>
+</div>
+<div class="section" id="id7">
+<h2>Примеры<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id8">
+<h3>Генерация произвольного пароля<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<p>Хороший пароль должен быть произвольным и состоять минимум из 6 символов, в нём должны быть цифры, строчные и прописные буквы. Приготовить такой пароль можно по следующему рецепту:</p>
+<div class="highlight-python"><div class="highlight"><pre>import random
+# Щепотка цифр
+str1 = &#39;123456789&#39;
+# Щепотка строчных букв
+str2 = &#39;qwertyuiopasdfghjklzxcvbnm&#39;
+# Щепотка прописных букв. Готовится преобразованием str2
+в верхний     регистр.
+str3 = str2.upper()
+print(str3)
+# Выведет: &#39;QWERTYUIOPASDFGHJKLZXCVBNM&#39;
+
+# Соединяем все строки в одну
+str4 = str1+str2+str3
+print(str4)
+# Выведет: &#39;123456789qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM&#39;
+
+# Преобразуем получившуюся строку в список
+ls = list(str4)
+# Тщательно перемешиваем список
+random.shuffle(ls)
+# Извлекаем из списка 12 произвольных значений
+psw = &#39;&#39;.join([random.choice(ls) for x in range(12)])
+# Пароль готов
+print(psw)
+# Выведет: &#39;1t9G4YPsQ5L7&#39;
+</pre></div>
+</div>
+<p>Этот же скрипт можно записать всего в две строки:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">random</span>
+<span class="k">print</span><span class="p">(</span><span class="s">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="s">&#39;123456789qwertyuiopasdfghjklzxc</span>
+<span class="n">vbnmQWERTYUIOPASDFGHJKLZXCVBNM</span><span class="s">&#39;)) for x in range(12)]))</span>
+</pre></div>
+</div>
+<p>Данная команда является краткой записью цикла for, вместо неё можно было написать так:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">random</span>
+<span class="n">psw</span> <span class="o">=</span> <span class="s">&#39;&#39;</span> <span class="c"># предварительно создаем переменную psw</span>
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">12</span><span class="p">):</span>
+    <span class="n">psw</span> <span class="o">=</span> <span class="n">psw</span> <span class="o">+</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="s">&#39;123456789qwertyuiopasdfgh</span>
+<span class="n">jklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM</span><span class="s">&#39;))</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">psw</span><span class="p">)</span>
+<span class="c"># Выведет: Ci7nU6343YGZ</span>
+</pre></div>
+</div>
+<p>Данный цикл повторяется 12 раз и на каждом круге добавляет к строке psw произвольно выбранный элемент из списка.</p>
+</div>
+</div>
+<div class="section" id="id9">
+<h2>Ссылки<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="https://docs.python.org/3.0/library/random.html">Официальная документация по модулю random</a> (англ.)</li>
+<li><a class="reference external" href="http://pythonworld.ru/moduli/modul-random.html">Python 3 для начинающих: Модуль random</a></li>
+<li><a class="reference external" href="http://python-3.ru/page/python-random">Модуль random — генерация случайных чисел</a></li>
+<li><a class="reference external" href="http://habrahabr.ru/company/pt/blog/156133/">Безопасность случайных чисел в Python</a></li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Python 3: Генерация случайных чисел (модуль random)</a><ul>
+<li><a class="reference internal" href="#random-random">random.random</a></li>
+<li><a class="reference internal" href="#random-seed">random.seed</a></li>
+<li><a class="reference internal" href="#random-uniform">random.uniform</a></li>
+<li><a class="reference internal" href="#random-randint">random.randint</a></li>
+<li><a class="reference internal" href="#random-choince">random.choince</a></li>
+<li><a class="reference internal" href="#random-randrange">random.randrange</a></li>
+<li><a class="reference internal" href="#random-shuffle">random.shuffle</a></li>
+<li><a class="reference internal" href="#id6">Вероятностные распределения</a></li>
+<li><a class="reference internal" href="#id7">Примеры</a><ul>
+<li><a class="reference internal" href="#id8">Генерация произвольного пароля</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id9">Ссылки</a></li>
+</ul>
+</li>
+</ul>
+
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/random.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li><a href="index.html">Python Summary 1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2015, Dee.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+    </div>
+  </body>
+</html>
