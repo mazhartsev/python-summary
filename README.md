@@ -1,1 +1,3 @@
-# python-summary
+# Python Summary
+
+Конспект по языку программирования Python
