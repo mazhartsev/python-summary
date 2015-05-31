@@ -10,9 +10,10 @@
 
 .. toctree::
    :maxdepth: 2
-
-   random
    
+   strings
+   random
+   bibliography
 
 
 
