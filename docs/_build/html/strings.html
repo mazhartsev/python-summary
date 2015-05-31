@@ -1,0 +1,373 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Python 3: Строки. Функции и методы строк &mdash; Документация Python Summary 1</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    <link rel="top" title="Документация Python Summary 1" href="index.html" />
+    <link rel="next" title="Python 3: Генерация случайных чисел (модуль random)" href="random.html" />
+    <link rel="prev" title="Конспект по языку программирования Python" href="index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Навигация</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="Алфавитный указатель"
+             accesskey="I">указатель</a></li>
+        <li class="right" >
+          <a href="random.html" title="Python 3: Генерация случайных чисел (модуль random)"
+             accesskey="N">вперёд</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Конспект по языку программирования Python"
+             accesskey="P">назад</a> |</li>
+        <li><a href="index.html">Документация Python Summary 1</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="python-3">
+<span id="python3-strings"></span><h1>Python 3: Строки. Функции и методы строк<a class="headerlink" href="#python-3" title="Ссылка на этот заголовок">¶</a></h1>
+<div class="section" id="id1">
+<h2>Базовые операции<a class="headerlink" href="#id1" title="Ссылка на этот заголовок">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># Конкатенация (сложение)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">s1</span> <span class="o">=</span> <span class="s">&#39;spam&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">s2</span> <span class="o">=</span> <span class="s">&#39;eggs&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">s1</span> <span class="o">+</span> <span class="n">s2</span><span class="p">)</span>
+<span class="s">&#39;spameggs&#39;</span>
+
+<span class="c"># Дублирование строки</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="s">&#39;spam&#39;</span> <span class="o">*</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">spamspamspam</span>
+
+<span class="c"># Длина строки</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="s">&#39;spam&#39;</span><span class="p">)</span>
+<span class="mi">4</span>
+
+<span class="c"># Доступ по индексу</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">S</span> <span class="o">=</span> <span class="s">&#39;spam&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">S</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="s">&#39;s&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">S</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<span class="s">&#39;a&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">S</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+<span class="s">&#39;a&#39;</span>
+
+<span class="c"># Срез</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">s</span> <span class="o">=</span> <span class="s">&#39;spameggs&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">s</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>
+<span class="s">&#39;me&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">s</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+<span class="s">&#39;ameg&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">s</span><span class="p">[:</span><span class="mi">6</span><span class="p">]</span>
+<span class="s">&#39;spameg&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">s</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+<span class="s">&#39;pameggs&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">s</span><span class="p">[:]</span>
+<span class="s">&#39;spameggs&#39;</span>
+
+<span class="c"># Шаг, извлечения среза</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">s</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="s">&#39;sggemaps&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">s</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">5</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="s">&#39;&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">s</span><span class="p">[</span><span class="mi">2</span><span class="p">::</span><span class="mi">2</span><span class="p">]</span>
+<span class="s">&#39;aeg&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id2">
+<h2>Другие функции и методы строк<a class="headerlink" href="#id2" title="Ссылка на этот заголовок">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre># Литералы строк
+S = &#39;str&#39;; S = &quot;str&quot;; S = &#39;&#39;&#39;str&#39;&#39;&#39;; S = &quot;&quot;&quot;str&quot;&quot;&quot;
+# Экранированные последовательности
+S = &quot;s\np\ta\nbbb&quot;
+# Неформатированные строки (подавляют экранирование)
+S = r&quot;C:\temp\new&quot;
+# Строка байтов
+S = b&quot;byte&quot;
+# Конкатенация (сложение строк)
+S1 + S2
+# Повторение строки
+S1 * 3
+# Обращение по индексу
+S[i]
+# Извлечение среза
+S[i:j:step]
+# Длина строки
+len(S)
+# Поиск подстроки в строке. Возвращает номер первого вхождения или -1
+S.find(str, [start],[end])
+# Поиск подстроки в строке. Возвращает номер последнего вхождения или -1
+S.rfind(str, [start],[end])
+# Поиск подстроки в строке. Возвращает номер первого вхождения или вызывает ValueError
+S.index(str, [start],[end])
+# Поиск подстроки в строке. Возвращает номер последнего вхождения или вызывает ValueError
+S.rindex(str, [start],[end])
+# Замена шаблона
+S.replace(шаблон, замена)
+# Разбиение строки по разделителю
+S.split(символ)
+# Состоит ли строка из цифр
+S.isdigit()
+# Состоит ли строка из букв
+S.isalpha()
+# Состоит ли строка из цифр или букв
+S.isalnum()
+# Состоит ли строка из символов в нижнем регистре
+S.islower()
+# Состоит ли строка из символов в верхнем регистре
+S.isupper()
+# Состоит ли строка из неотображаемых символов (пробел, символ перевода страницы (&#39;\f&#39;), &quot;новая строка&quot; (&#39;\n&#39;), &quot;перевод каретки&quot; (&#39;\r&#39;), &quot;горизонтальная табуляция&quot; (&#39;\t&#39;) и &quot;вертикальная табуляция&quot; (&#39;\v&#39;))
+S.isspace()
+# Начинаются ли слова в строке с заглавной буквы
+S.istitle()
+# Преобразование строки к верхнему регистру
+S.upper()
+# Преобразование строки к нижнему регистру
+S.lower()
+# Начинается ли строка S с шаблона str
+S.startswith(str)
+# Заканчивается ли строка S шаблоном str
+S.endswith(str)
+# Сборка строки из списка с разделителем S
+S.join(список)
+# Символ в его код ASCII
+ord(символ)
+# Код ASCII в символ
+chr(число)
+# Переводит первый символ строки в верхний регистр, а все остальные в нижний
+S.capitalize()
+# Возвращает отцентрованную строку, по краям которой стоит символ fill (пробел по умолчанию)
+S.center(width, [fill])
+# Возвращает количество непересекающихся вхождений подстроки в диапазоне [начало, конец] (0 и длина строки по умолчанию)
+S.count(str, [start],[end])
+# Возвращает копию строки, в которой все символы табуляции заменяются одним или несколькими пробелами, в зависимости от текущего столбца. Если TabSize не указан, размер табуляции полагается равным 8 пробелам
+S.expandtabs([tabsize])
+# Удаление пробельных символов в начале строки
+S.lstrip([chars])
+# Удаление пробельных символов в конце строки
+S.rstrip([chars])
+# Удаление пробельных символов в начале и в конце строки
+S.strip([chars])
+# Возвращает кортеж, содержащий часть перед первым шаблоном, сам шаблон, и часть после шаблона. Если шаблон не найден, возвращается кортеж, содержащий саму строку, а затем две пустых строки
+S.partition(шаблон)
+# Возвращает кортеж, содержащий часть перед последним шаблоном, сам шаблон, и часть после шаблона. Если шаблон не найден, возвращается кортеж, содержащий две пустых строки, а затем саму строку
+S.rpartition(sep)
+# Переводит символы нижнего регистра в верхний, а верхнего – в нижний
+S.swapcase()
+# Первую букву каждого слова переводит в верхний регистр, а все остальные в нижний
+S.title()
+# Делает длину строки не меньшей width, по необходимости заполняя первые символы нулями
+S.zfill(width)
+# Делает длину строки не меньшей width, по необходимости заполняя последние символы символом fillchar
+S.ljust(width, fillchar=&quot; &quot;)
+# Делает длину строки не меньшей width, по необходимости заполняя первые символы символом fillchar
+S.rjust(width, fillchar=&quot; &quot;)
+</pre></div>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>Форматирование строк<a class="headerlink" href="#id3" title="Ссылка на этот заголовок">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">S</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>Примеры<a class="headerlink" href="#id4" title="Ссылка на этот заголовок">¶</a></h2>
+<div class="section" id="python-str-find-str-rfind">
+<h3>Python: Определение позиции подстроки (функции str.find и str.rfind)<a class="headerlink" href="#python-str-find-str-rfind" title="Ссылка на этот заголовок">¶</a></h3>
+<p>Определение позиции подстроки в строке с помощью функций <tt class="docutils literal"><span class="pre">str.find</span></tt> и <tt class="docutils literal"><span class="pre">str.rfind</span></tt>.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">In</span> <span class="p">[</span><span class="mi">1</span><span class="p">]:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s">&#39;ftp://dl.dropbox.com/u/7334460/Magick_py/py_magick.pdf&#39;</span>
+</pre></div>
+</div>
+<p>Функция <tt class="docutils literal"><span class="pre">str.find</span></tt> показывает первое вхождение подстроки. Все позиции возвращаются относительно начало строки.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">In</span> <span class="p">[</span><span class="mi">2</span><span class="p">]:</span> <span class="nb">str</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s">&#39;/&#39;</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">2</span><span class="p">]:</span> <span class="mi">4</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">3</span><span class="p">]:</span> <span class="nb">str</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">3</span><span class="p">]:</span> <span class="s">&#39;/&#39;</span>
+</pre></div>
+</div>
+<p>Можно определить вхождение в срезе. первое число показывает начало среза, в котором производится поиск. Второе число — конец среза. В случае отсутствия вхождения подстроки выводится -1.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">In</span> <span class="p">[</span><span class="mi">4</span><span class="p">]:</span> <span class="nb">str</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s">&#39;/&#39;</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">18</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">4</span><span class="p">]:</span> <span class="o">-</span><span class="mi">1</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">5</span><span class="p">]:</span> <span class="nb">str</span><span class="p">[</span><span class="mi">8</span><span class="p">:</span><span class="mi">18</span><span class="p">]</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">5</span><span class="p">]:</span> <span class="s">&#39;.dropbox.c&#39;</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">6</span><span class="p">]:</span> <span class="nb">str</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s">&#39;/&#39;</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">22</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">6</span><span class="p">]:</span> <span class="mi">20</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">7</span><span class="p">]:</span> <span class="nb">str</span><span class="p">[</span><span class="mi">8</span><span class="p">:</span><span class="mi">22</span><span class="p">]</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">7</span><span class="p">]:</span> <span class="s">&#39;.dropbox.com/u&#39;</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">8</span><span class="p">]:</span> <span class="nb">str</span><span class="p">[</span><span class="mi">20</span><span class="p">]</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">8</span><span class="p">]:</span> <span class="s">&#39;/&#39;</span>
+</pre></div>
+</div>
+<p>Функция <tt class="docutils literal"><span class="pre">str.rfind</span></tt> осуществляет поиск с конца строки, но возвращает позицию подстроки относительно начала строки.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">In</span> <span class="p">[</span><span class="mi">9</span><span class="p">]:</span> <span class="nb">str</span><span class="o">.</span><span class="n">rfind</span><span class="p">(</span><span class="s">&#39;/&#39;</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">9</span><span class="p">]:</span> <span class="mi">40</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">10</span><span class="p">]:</span> <span class="nb">str</span><span class="p">[</span><span class="mi">40</span><span class="p">]</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">10</span><span class="p">]:</span> <span class="s">&#39;/&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="python-url">
+<h3>Python: Извлекаем имя файла из URL<a class="headerlink" href="#python-url" title="Ссылка на этот заголовок">¶</a></h3>
+<p>Понадобилось мне отрезать от URL всё, что находится после последнего слэша, т.е.названия файла. URL можеть быть какой угодно. Знаю, что задачу запросто можно решить с помощью специального модуля, но я хотел избежать этого. Есть, как минимум, два способа справиться с поставленным вопросом.</p>
+<div class="section" id="o1">
+<h4>Способ №1<a class="headerlink" href="#o1" title="Ссылка на этот заголовок">¶</a></h4>
+<p>Достаточно простой способ. Разбиваем строку по слэшам с помощью функции <tt class="docutils literal"><span class="pre">split()</span></tt>, которая возвращает список. А затем из этого списка извлекаем последний элемент. Он и будет названием файла.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">In</span> <span class="p">[</span><span class="mi">1</span><span class="p">]:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s">&#39;http://dl.dropbox.com/u/7334460/Magick_py/py_magick.pdf&#39;</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">2</span><span class="p">]:</span> <span class="nb">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&#39;/&#39;</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">2</span><span class="p">]:</span> <span class="p">[</span><span class="s">&#39;http:&#39;</span><span class="p">,</span> <span class="s">&#39;&#39;</span><span class="p">,</span> <span class="s">&#39;dl.dropbox.com&#39;</span><span class="p">,</span> <span class="s">&#39;u&#39;</span><span class="p">,</span> <span class="s">&#39;7334460&#39;</span><span class="p">,</span> <span class="s">&#39;Magick_py&#39;</span><span class="p">,</span> <span class="s">&#39;py_magick.pdf&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Повторим шаг с присвоением переменной:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">In</span> <span class="p">[</span><span class="mi">3</span><span class="p">]:</span> <span class="n">file_name</span> <span class="o">=</span> <span class="nb">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&#39;/&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">4</span><span class="p">]:</span> <span class="n">file_name</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">4</span><span class="p">]:</span> <span class="s">&#39;py_magick.pdf&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="o2">
+<h4>Способ №2<a class="headerlink" href="#o2" title="Ссылка на этот заголовок">¶</a></h4>
+<p>Второй способ интереснее. Сначала с помощью функции <tt class="docutils literal"><span class="pre">rfind()</span></tt> находим первое вхождение с конца искомой подстроки. Функция возвращает позицию подстроки относительно начала строки. А далее просто делаем срез.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">In</span> <span class="p">[</span><span class="mi">5</span><span class="p">]:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s">&#39;http://dl.dropbox.com/u/7334460/Magick_py/py_magick.pdf&#39;</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">6</span><span class="p">]:</span> <span class="nb">str</span><span class="o">.</span><span class="n">rfind</span><span class="p">(</span><span class="s">&#39;/&#39;</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">6</span><span class="p">]:</span> <span class="mi">41</span>
+</pre></div>
+</div>
+<p>Делаем срез:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">In</span> <span class="p">[</span><span class="mi">7</span><span class="p">]:</span> <span class="n">file_name</span> <span class="o">=</span> <span class="nb">str</span><span class="p">[</span><span class="mi">42</span><span class="p">:]</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">8</span><span class="p">]:</span> <span class="n">file_name</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">8</span><span class="p">]:</span> <span class="s">&#39;py_magick.pdf&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id5">
+<h2>Дополнительные материалы<a class="headerlink" href="#id5" title="Ссылка на этот заголовок">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="http://habrahabr.ru/post/236633/">Учим старую собаку новым трюкам или как я научился любить str.format и отказался от %</a></li>
+<li><a class="reference external" href="http://pythonworld.ru/tipy-dannyx-v-python/stroki-funkcii-i-metody-strok.html">Строки. Функции и методы строк</a></li>
+<li><a class="reference external" href="http://pythonworld.ru/tipy-dannyx-v-python/stroki-literaly-strok.html">Работа со строками в Python: литералы</a></li>
+<li><a class="reference external" href="https://ru.wikisource.org/wiki/%D0%9F%D0%BE%D0%B3%D1%80%D1%83%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5_%D0%B2_Python_3_%28%D0%9F%D0%B8%D0%BB%D0%B3%D1%80%D0%B8%D0%BC%29/%D0%A1%D1%82%D1%80%D0%BE%D0%BA%D0%B8">Погружение в Python 3 (Пилгрим)/Строки</a></li>
+</ul>
+<p>Python: удаление не пустых папок
+Модуль os содержит ряд функций для работы с файлами, в том числе функции
+os.remove(path)
+os.removedirs(path)
+os.rmdir(path)
+Однако они могут удалять только пустые папки.</p>
+<p>Для удаления не пустых папок нужно использовать модуль shutil и функцию из него shutil.rmtree(path, ignore_errors=False, onerror=None)</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Оглавление</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Python 3: Строки. Функции и методы строк</a><ul>
+<li><a class="reference internal" href="#id1">Базовые операции</a></li>
+<li><a class="reference internal" href="#id2">Другие функции и методы строк</a></li>
+<li><a class="reference internal" href="#id3">Форматирование строк</a></li>
+<li><a class="reference internal" href="#id4">Примеры</a><ul>
+<li><a class="reference internal" href="#python-str-find-str-rfind">Python: Определение позиции подстроки (функции str.find и str.rfind)</a></li>
+<li><a class="reference internal" href="#python-url">Python: Извлекаем имя файла из URL</a><ul>
+<li><a class="reference internal" href="#o1">Способ №1</a></li>
+<li><a class="reference internal" href="#o2">Способ №2</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id5">Дополнительные материалы</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Предыдущий раздел</h4>
+  <p class="topless"><a href="index.html"
+                        title="предыдущая глава">Конспект по языку программирования Python</a></p>
+  <h4>Следующий раздел</h4>
+  <p class="topless"><a href="random.html"
+                        title="следующая глава">Python 3: Генерация случайных чисел (модуль random)</a></p>
+  <h3>Эта страница</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/strings.txt"
+           rel="nofollow">Исходный текст</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Быстрый поиск</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Искать" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Введите слова для поиска или имя модуля, класса или функции.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Навигация</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="Алфавитный указатель"
+             >указатель</a></li>
+        <li class="right" >
+          <a href="random.html" title="Python 3: Генерация случайных чисел (модуль random)"
+             >вперёд</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Конспект по языку программирования Python"
+             >назад</a> |</li>
+        <li><a href="index.html">Документация Python Summary 1</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2015, Dee.
+      Создано с помощью <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+    </div>
+  </body>
+</html>
