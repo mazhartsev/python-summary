@@ -85,7 +85,7 @@ random.randint
     random.randint(1,27)
     22
 
-random.choince
+random.choice
 --------------
 
 ``random.choince(<Последовательность>)`` — возвращает случайный элемент из любой последовательности (строки, списка, кортежа):
